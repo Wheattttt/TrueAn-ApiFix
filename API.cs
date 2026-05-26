@@ -72,7 +72,7 @@ public static class API
                 return check.rating;
             }
         }
-        Logger.Log("Tried to determine animismus atom from an undefined rating.");
+        // Invalid results are a normal case now, as the rating check can happen on any atom.
         tag = null;
         return 0;
     }
@@ -87,7 +87,8 @@ public static class API
                 return check.atomtype;
             }
         }
-        Logger.Log("Tried to determine animismus atom from an undefined rating."); return null;
+        // Invalid results are a normal case now, as the rating check can happen on any atom.
+        return null;
     }
 
     public static bool applyLeftHandRule(AtomType input, out AtomType output) => applyTRule(input, lefthandDict, out output);
