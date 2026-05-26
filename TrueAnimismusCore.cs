@@ -743,10 +743,10 @@ public class MainClass : QuintessentialMod
                         {
                             return;
                         }
-                        if (L.Value > R.Value)
+                        if (Math.Abs(L.Value) > Math.Abs(R.Value))
                         {
-                            AtomType testleft = API.RatingToAtom(L.Value - 1, tagleft);
-                            AtomType testright = API.RatingToAtom(R.Value + 1, tagright);
+                            AtomType testleft = API.RatingToAtom(L.Value - Math.Sign(L.Value), tagleft);
+                            AtomType testright = API.RatingToAtom(R.Value + Math.Sign(L.Value), tagright);
                             if (!EqualityComparer<AtomType>.Default.Equals(testleft, default) && !EqualityComparer<AtomType>.Default.Equals(testright, default))
                             {
                                 transleft = testleft;
